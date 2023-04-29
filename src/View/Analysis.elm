@@ -13,19 +13,19 @@ view promptsList =
             filterPromptsList promptsList
 
         viewPrompt grouping prompt =
-            li [ class "flex flex-row space-x-4" ]
-                [ strong [ class "font-semibold text-gray-500" ] [ text grouping ]
+            li [ class "flex flex-col md:flex-row md:space-x-4" ]
+                [ strong [ class "font-semibold text-gray-600" ] [ text grouping ]
                 , span [] [ text <| promptText prompt ]
                 ]
 
         viewAttention (PromptsList inner) =
             div []
-                [ ul [] (List.map (viewPrompt "Engineering") inner.listEngineeringPrompts)
-                , ul [] (List.map (viewPrompt "Product") inner.listProductPrompts)
-                , ul [] (List.map (viewPrompt "Team Management") inner.listTeamManagementPrompts)
-                , ul [] (List.map (viewPrompt "Hiring") inner.listHiringPrompts)
-                , ul [] (List.map (viewPrompt "Engineering Onboarding") inner.listEngineeringOnboardingPrompts)
-                , ul [] (List.map (viewPrompt "Engineering Retention") inner.listEngineeringRetentionPrompts)
+                [ ul [ class "space-y-2" ] (List.map (viewPrompt "Engineering") inner.listEngineeringPrompts)
+                , ul [ class "space-y-2" ] (List.map (viewPrompt "Product") inner.listProductPrompts)
+                , ul [ class "space-y-2" ] (List.map (viewPrompt "Team Management") inner.listTeamManagementPrompts)
+                , ul [ class "space-y-2" ] (List.map (viewPrompt "Hiring") inner.listHiringPrompts)
+                , ul [ class "space-y-2" ] (List.map (viewPrompt "Engineering Onboarding") inner.listEngineeringOnboardingPrompts)
+                , ul [ class "space-y-2" ] (List.map (viewPrompt "Engineering Retention") inner.listEngineeringRetentionPrompts)
                 ]
 
         groupHeader prompt =
@@ -45,7 +45,7 @@ view promptsList =
         text ""
 
     else
-        div [ class "m-12 px-8 py-6 rounded-md border border-gray-100 bg-gray-50 flex flex-col space-y-4" ]
+        div [ class "p-4 md:m-12 md:px-8 md:py-6 md:rounded-md border border-gray-100 bg-gray-50 flex flex-col space-y-4" ]
             [ fullSection "Focus" promptsGroupedByAttention.focusPrompts
             , fullSection "Learn" promptsGroupedByAttention.learnPrompts
             , fullSection "Avoid" promptsGroupedByAttention.avoidPrompts

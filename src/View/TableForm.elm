@@ -12,14 +12,14 @@ view : PromptsList a -> Html Msg
 view (PromptsList model) =
     let
         rowHeader string =
-            tr []
-                [ td [ class "pb-1 pt-6", colspan 3 ] [ h2 [ class "bg-gray-100 text-2xl font-bold px-4 py-1" ] [ text string ] ]
+            li [ class "sticky top-0 md:relative" ]
+                [ h2 [ class "bg-gray-100 text-2xl font-bold px-4 py-1" ] [ text string ]
                 ]
 
         questionsForSection string list =
             List.indexedMap (viewQuestion string) list
     in
-    table [ class "w-full" ] <|
+    ul [ class "w-full" ] <|
         [ rowHeader "Engineering" ]
             ++ questionsForSection "Engineering" model.listEngineeringPrompts
             ++ [ rowHeader "Product" ]
@@ -82,8 +82,10 @@ viewQuestion str i prompt =
         emptyOption =
             option [] [ text "" ]
     in
-    tr [ class "border-b border-gray-200" ]
-        [ td [ class "py-1 px-4 w-2/3" ] [ text <| promptText prompt ]
-        , td [ class "py-1 px-4 w-1/6" ] [ select [ selectClass, onInput skillEvent ] (emptyOption :: List.map buildSkillOption allSkills) ]
-        , td [ class "py-1 px-4 w-1/6" ] [ select [ selectClass, onInput enjoymentEvent ] (emptyOption :: List.map buildEnjoymentOption allEnjoyments) ]
+    li [ class "border-b border-gray-200 flex flex-col space-y-4 md:space-y-0 md:flex-row px-4 py-4" ]
+        [ div [ class "w-full md:w-2/3" ] [ text <| promptText prompt ]
+        , div [ class "w-full md:w-1/3 flex space-x-4" ]
+            [ span [ class "block w-1/2" ] [ select [ selectClass, onInput skillEvent ] (emptyOption :: List.map buildSkillOption allSkills) ]
+            , span [ class "block w-1/2" ] [ select [ selectClass, onInput enjoymentEvent ] (emptyOption :: List.map buildEnjoymentOption allEnjoyments) ]
+            ]
         ]

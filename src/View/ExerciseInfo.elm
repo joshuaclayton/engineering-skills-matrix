@@ -7,7 +7,7 @@ import Html.Attributes exposing (class)
 view : Html a
 view =
     div [ class "p-4 flex flex-col space-y-4" ]
-        [ h1 [ class "text-5xl font-extrabold pt-8" ] [ text "Engineering Skills Matrix" ]
+        [ h1 [ class "text-3xl md:text-5xl font-extrabold md:pt-8" ] [ text "Engineering Skills Matrix" ]
         , p []
             [ text "The Engineering Skills Matrix is a tool to help you identify your strengths, weaknesses, and areas of interest as an engineer. "
             , text "It is geared towards engineers operating at least at a mid+ level who are contemplating career paths into engineering management, engineering/team lead, or senior technical engineering (e.g. staff+) roles."
