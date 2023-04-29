@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "elm-format": "^0.8.7",
+    "parcel": "^2.8.3"
+  },
+  "devDependencies": {
+    "@parcel/transformer-elm": "^2.8.3",
+    "elm": "^0.19.1-5"
+  },
+  "scripts": {
+    "format": "elm-format --yes src/",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+}
