@@ -20,12 +20,12 @@ view promptsList =
 
         viewAttention (PromptsList inner) =
             div []
-                [ ul [ class "space-y-2" ] (List.map (viewPrompt "Engineering") inner.listEngineeringPrompts)
+                [ ul [ class "space-y-2" ] (List.map (viewPrompt "Software Development") inner.listSoftwareDevelopmentPrompts)
                 , ul [ class "space-y-2" ] (List.map (viewPrompt "Product") inner.listProductPrompts)
                 , ul [ class "space-y-2" ] (List.map (viewPrompt "Team Management") inner.listTeamManagementPrompts)
                 , ul [ class "space-y-2" ] (List.map (viewPrompt "Hiring") inner.listHiringPrompts)
-                , ul [ class "space-y-2" ] (List.map (viewPrompt "Engineering Onboarding") inner.listEngineeringOnboardingPrompts)
-                , ul [ class "space-y-2" ] (List.map (viewPrompt "Engineering Retention") inner.listEngineeringRetentionPrompts)
+                , ul [ class "space-y-2" ] (List.map (viewPrompt "Teammate Onboarding") inner.listTeammateOnboardingPrompts)
+                , ul [ class "space-y-2" ] (List.map (viewPrompt "Teammate Retention") inner.listTeammateRetentionPrompts)
                 ]
 
         groupHeader prompt =

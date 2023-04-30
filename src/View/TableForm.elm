@@ -20,18 +20,18 @@ view (PromptsList model) =
             List.indexedMap (viewQuestion string) list
     in
     ul [ class "w-full" ] <|
-        [ rowHeader "Engineering" ]
-            ++ questionsForSection "Engineering" model.listEngineeringPrompts
+        [ rowHeader "Software Development" ]
+            ++ questionsForSection "Software Development" model.listSoftwareDevelopmentPrompts
             ++ [ rowHeader "Product" ]
             ++ questionsForSection "Product" model.listProductPrompts
             ++ [ rowHeader "Team Management" ]
             ++ questionsForSection "Team Management" model.listTeamManagementPrompts
             ++ [ rowHeader "Hiring" ]
             ++ questionsForSection "Hiring" model.listHiringPrompts
-            ++ [ rowHeader "Engineering Onboarding" ]
-            ++ questionsForSection "Engineering Onboarding" model.listEngineeringOnboardingPrompts
-            ++ [ rowHeader "Engineering Retention" ]
-            ++ questionsForSection "Engineering Retention" model.listEngineeringRetentionPrompts
+            ++ [ rowHeader "Teammate Onboarding" ]
+            ++ questionsForSection "Teammate Onboarding" model.listTeammateOnboardingPrompts
+            ++ [ rowHeader "Teammate Retention" ]
+            ++ questionsForSection "Teammate Retention" model.listTeammateRetentionPrompts
 
 
 viewQuestion : String -> Int -> Prompt a -> Html Msg

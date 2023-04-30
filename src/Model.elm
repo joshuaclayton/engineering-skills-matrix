@@ -1,16 +1,13 @@
 module Model exposing
-    ( Engineering
-    , EngineeringOnboarding
-    , EngineeringRetention
-    , Hiring
+    ( Hiring
     , Model
     , Product
     , PromptsGroupedByAttention
     , PromptsList(..)
+    , SoftwareDevelopment
     , TeamManagement
-    , engineeringOnboardingPromptsOfModel
-    , engineeringPromptsOfModel
-    , engineeringRetentionPromptsOfModel
+    , TeammateOnboarding
+    , TeammateRetention
     , filterPromptsList
     , hiringPromptsOfModel
     , productPromptsOfModel
@@ -18,7 +15,10 @@ module Model exposing
     , promptsListEmpty
     , setEnjoyment
     , setSkill
+    , softwareDevelopmentPromptsOfModel
     , teamManagementPromptsOfModel
+    , teammateOnboardingPromptsOfModel
+    , teammateRetentionPromptsOfModel
     , unsetEnjoyment
     , unsetSkill
     )
@@ -34,17 +34,17 @@ type alias Model =
 
 type PromptsList a
     = PromptsList
-        { listEngineeringPrompts : List (Prompt Engineering)
+        { listSoftwareDevelopmentPrompts : List (Prompt SoftwareDevelopment)
         , listProductPrompts : List (Prompt Product)
         , listTeamManagementPrompts : List (Prompt TeamManagement)
         , listHiringPrompts : List (Prompt Hiring)
-        , listEngineeringOnboardingPrompts : List (Prompt EngineeringOnboarding)
-        , listEngineeringRetentionPrompts : List (Prompt EngineeringRetention)
+        , listTeammateOnboardingPrompts : List (Prompt TeammateOnboarding)
+        , listTeammateRetentionPrompts : List (Prompt TeammateRetention)
         }
 
 
-type Engineering
-    = Engineering
+type SoftwareDevelopment
+    = SoftwareDevelopment
 
 
 type Product
@@ -59,22 +59,22 @@ type Hiring
     = Hiring
 
 
-type EngineeringOnboarding
-    = EngineeringOnboarding
+type TeammateOnboarding
+    = TeammateOnboarding
 
 
-type EngineeringRetention
-    = EngineeringRetention
+type TeammateRetention
+    = TeammateRetention
 
 
 promptsListEmpty : PromptsList a -> Bool
 promptsListEmpty (PromptsList promptsList) =
-    List.isEmpty promptsList.listEngineeringPrompts
+    List.isEmpty promptsList.listSoftwareDevelopmentPrompts
         && List.isEmpty promptsList.listProductPrompts
         && List.isEmpty promptsList.listTeamManagementPrompts
         && List.isEmpty promptsList.listHiringPrompts
-        && List.isEmpty promptsList.listEngineeringOnboardingPrompts
-        && List.isEmpty promptsList.listEngineeringRetentionPrompts
+        && List.isEmpty promptsList.listTeammateOnboardingPrompts
+        && List.isEmpty promptsList.listTeammateRetentionPrompts
 
 
 type alias PromptsGroupedByAttention =
@@ -109,46 +109,46 @@ filterPromptsList (PromptsList list) =
     in
     { focusPrompts =
         PromptsList
-            { listEngineeringPrompts = List.filter focusPrompt list.listEngineeringPrompts
+            { listSoftwareDevelopmentPrompts = List.filter focusPrompt list.listSoftwareDevelopmentPrompts
             , listProductPrompts = List.filter focusPrompt list.listProductPrompts
             , listTeamManagementPrompts = List.filter focusPrompt list.listTeamManagementPrompts
             , listHiringPrompts = List.filter focusPrompt list.listHiringPrompts
-            , listEngineeringOnboardingPrompts = List.filter focusPrompt list.listEngineeringOnboardingPrompts
-            , listEngineeringRetentionPrompts = List.filter focusPrompt list.listEngineeringRetentionPrompts
+            , listTeammateOnboardingPrompts = List.filter focusPrompt list.listTeammateOnboardingPrompts
+            , listTeammateRetentionPrompts = List.filter focusPrompt list.listTeammateRetentionPrompts
             }
     , continuePrompts =
         PromptsList
-            { listEngineeringPrompts = List.filter continuePrompt list.listEngineeringPrompts
+            { listSoftwareDevelopmentPrompts = List.filter continuePrompt list.listSoftwareDevelopmentPrompts
             , listProductPrompts = List.filter continuePrompt list.listProductPrompts
             , listTeamManagementPrompts = List.filter continuePrompt list.listTeamManagementPrompts
             , listHiringPrompts = List.filter continuePrompt list.listHiringPrompts
-            , listEngineeringOnboardingPrompts = List.filter continuePrompt list.listEngineeringOnboardingPrompts
-            , listEngineeringRetentionPrompts = List.filter continuePrompt list.listEngineeringRetentionPrompts
+            , listTeammateOnboardingPrompts = List.filter continuePrompt list.listTeammateOnboardingPrompts
+            , listTeammateRetentionPrompts = List.filter continuePrompt list.listTeammateRetentionPrompts
             }
     , learnPrompts =
         PromptsList
-            { listEngineeringPrompts = List.filter learnPrompt list.listEngineeringPrompts
+            { listSoftwareDevelopmentPrompts = List.filter learnPrompt list.listSoftwareDevelopmentPrompts
             , listProductPrompts = List.filter learnPrompt list.listProductPrompts
             , listTeamManagementPrompts = List.filter learnPrompt list.listTeamManagementPrompts
             , listHiringPrompts = List.filter learnPrompt list.listHiringPrompts
-            , listEngineeringOnboardingPrompts = List.filter learnPrompt list.listEngineeringOnboardingPrompts
-            , listEngineeringRetentionPrompts = List.filter learnPrompt list.listEngineeringRetentionPrompts
+            , listTeammateOnboardingPrompts = List.filter learnPrompt list.listTeammateOnboardingPrompts
+            , listTeammateRetentionPrompts = List.filter learnPrompt list.listTeammateRetentionPrompts
             }
     , avoidPrompts =
         PromptsList
-            { listEngineeringPrompts = List.filter avoidPrompt list.listEngineeringPrompts
+            { listSoftwareDevelopmentPrompts = List.filter avoidPrompt list.listSoftwareDevelopmentPrompts
             , listProductPrompts = List.filter avoidPrompt list.listProductPrompts
             , listTeamManagementPrompts = List.filter avoidPrompt list.listTeamManagementPrompts
             , listHiringPrompts = List.filter avoidPrompt list.listHiringPrompts
-            , listEngineeringOnboardingPrompts = List.filter avoidPrompt list.listEngineeringOnboardingPrompts
-            , listEngineeringRetentionPrompts = List.filter avoidPrompt list.listEngineeringRetentionPrompts
+            , listTeammateOnboardingPrompts = List.filter avoidPrompt list.listTeammateOnboardingPrompts
+            , listTeammateRetentionPrompts = List.filter avoidPrompt list.listTeammateRetentionPrompts
             }
     }
 
 
-engineeringPromptsOfModel : Lens { a | listEngineeringPrompts : List (Prompt Engineering) } (List (Prompt Engineering))
-engineeringPromptsOfModel =
-    Lens .listEngineeringPrompts (\f model -> { model | listEngineeringPrompts = f })
+softwareDevelopmentPromptsOfModel : Lens { a | listSoftwareDevelopmentPrompts : List (Prompt SoftwareDevelopment) } (List (Prompt SoftwareDevelopment))
+softwareDevelopmentPromptsOfModel =
+    Lens .listSoftwareDevelopmentPrompts (\f model -> { model | listSoftwareDevelopmentPrompts = f })
 
 
 productPromptsOfModel : Lens { a | listProductPrompts : List (Prompt Product) } (List (Prompt Product))
@@ -166,14 +166,14 @@ hiringPromptsOfModel =
     Lens .listHiringPrompts (\f model -> { model | listHiringPrompts = f })
 
 
-engineeringOnboardingPromptsOfModel : Lens { a | listEngineeringOnboardingPrompts : List (Prompt EngineeringOnboarding) } (List (Prompt EngineeringOnboarding))
-engineeringOnboardingPromptsOfModel =
-    Lens .listEngineeringOnboardingPrompts (\f model -> { model | listEngineeringOnboardingPrompts = f })
+teammateOnboardingPromptsOfModel : Lens { a | listTeammateOnboardingPrompts : List (Prompt TeammateOnboarding) } (List (Prompt TeammateOnboarding))
+teammateOnboardingPromptsOfModel =
+    Lens .listTeammateOnboardingPrompts (\f model -> { model | listTeammateOnboardingPrompts = f })
 
 
-engineeringRetentionPromptsOfModel : Lens { a | listEngineeringRetentionPrompts : List (Prompt EngineeringRetention) } (List (Prompt EngineeringRetention))
-engineeringRetentionPromptsOfModel =
-    Lens .listEngineeringRetentionPrompts (\f model -> { model | listEngineeringRetentionPrompts = f })
+teammateRetentionPromptsOfModel : Lens { a | listTeammateRetentionPrompts : List (Prompt TeammateRetention) } (List (Prompt TeammateRetention))
+teammateRetentionPromptsOfModel =
+    Lens .listTeammateRetentionPrompts (\f model -> { model | listTeammateRetentionPrompts = f })
 
 
 setSkill : Lens b (List (Prompt a)) -> Int -> Skill -> b -> b

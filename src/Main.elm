@@ -18,12 +18,12 @@ main =
         { init =
             { currentPrompts =
                 PromptsList
-                    { listEngineeringPrompts = engineeringPrompts
+                    { listSoftwareDevelopmentPrompts = softwareDevelopmentPrompts
                     , listProductPrompts = productPrompts
                     , listTeamManagementPrompts = teamManagementPrompts
                     , listHiringPrompts = hiringPrompts
-                    , listEngineeringOnboardingPrompts = engineeringOnboardingPrompts
-                    , listEngineeringRetentionPrompts = engineeringRetentionPrompts
+                    , listTeammateOnboardingPrompts = teammateOnboardingPrompts
+                    , listTeammateRetentionPrompts = teammateRetentionPrompts
                     }
             }
         , update = update

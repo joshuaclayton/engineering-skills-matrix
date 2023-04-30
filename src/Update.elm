@@ -20,8 +20,8 @@ update msg model =
             { model | currentPrompts = PromptsList v }
     in
     case msg of
-        SetSkill "Engineering" index skill ->
-            setCurrentPrompts <| setSkill engineeringPromptsOfModel index skill prompts
+        SetSkill "Software Development" index skill ->
+            setCurrentPrompts <| setSkill softwareDevelopmentPromptsOfModel index skill prompts
 
         SetSkill "Product" index skill ->
             setCurrentPrompts <| setSkill productPromptsOfModel index skill prompts
@@ -32,14 +32,14 @@ update msg model =
         SetSkill "Hiring" index skill ->
             setCurrentPrompts <| setSkill hiringPromptsOfModel index skill prompts
 
-        SetSkill "Engineering Onboarding" index skill ->
-            setCurrentPrompts <| setSkill engineeringOnboardingPromptsOfModel index skill prompts
+        SetSkill "Teammate Onboarding" index skill ->
+            setCurrentPrompts <| setSkill teammateOnboardingPromptsOfModel index skill prompts
 
-        SetSkill "Engineering Retention" index skill ->
-            setCurrentPrompts <| setSkill engineeringRetentionPromptsOfModel index skill prompts
+        SetSkill "Teammate Retention" index skill ->
+            setCurrentPrompts <| setSkill teammateRetentionPromptsOfModel index skill prompts
 
-        UnsetSkill "Engineering" index ->
-            setCurrentPrompts <| unsetSkill engineeringPromptsOfModel index prompts
+        UnsetSkill "Software Development" index ->
+            setCurrentPrompts <| unsetSkill softwareDevelopmentPromptsOfModel index prompts
 
         UnsetSkill "Product" index ->
             setCurrentPrompts <| unsetSkill productPromptsOfModel index prompts
@@ -50,14 +50,14 @@ update msg model =
         UnsetSkill "Hiring" index ->
             setCurrentPrompts <| unsetSkill hiringPromptsOfModel index prompts
 
-        UnsetSkill "Engineering Onboarding" index ->
-            setCurrentPrompts <| unsetSkill engineeringOnboardingPromptsOfModel index prompts
+        UnsetSkill "Teammate Onboarding" index ->
+            setCurrentPrompts <| unsetSkill teammateOnboardingPromptsOfModel index prompts
 
-        UnsetSkill "Engineering Retention" index ->
-            setCurrentPrompts <| unsetSkill engineeringRetentionPromptsOfModel index prompts
+        UnsetSkill "Teammate Retention" index ->
+            setCurrentPrompts <| unsetSkill teammateRetentionPromptsOfModel index prompts
 
-        SetEnjoyment "Engineering" index enjoyment ->
-            setCurrentPrompts <| setEnjoyment engineeringPromptsOfModel index enjoyment prompts
+        SetEnjoyment "Software Development" index enjoyment ->
+            setCurrentPrompts <| setEnjoyment softwareDevelopmentPromptsOfModel index enjoyment prompts
 
         SetEnjoyment "Product" index enjoyment ->
             setCurrentPrompts <| setEnjoyment productPromptsOfModel index enjoyment prompts
@@ -68,14 +68,14 @@ update msg model =
         SetEnjoyment "Hiring" index enjoyment ->
             setCurrentPrompts <| setEnjoyment hiringPromptsOfModel index enjoyment prompts
 
-        SetEnjoyment "Engineering Onboarding" index enjoyment ->
-            setCurrentPrompts <| setEnjoyment engineeringOnboardingPromptsOfModel index enjoyment prompts
+        SetEnjoyment "Teammate Onboarding" index enjoyment ->
+            setCurrentPrompts <| setEnjoyment teammateOnboardingPromptsOfModel index enjoyment prompts
 
-        SetEnjoyment "Engineering Retention" index enjoyment ->
-            setCurrentPrompts <| setEnjoyment engineeringRetentionPromptsOfModel index enjoyment prompts
+        SetEnjoyment "Teammate Retention" index enjoyment ->
+            setCurrentPrompts <| setEnjoyment teammateRetentionPromptsOfModel index enjoyment prompts
 
-        UnsetEnjoyment "Engineering" index ->
-            setCurrentPrompts <| unsetEnjoyment engineeringPromptsOfModel index prompts
+        UnsetEnjoyment "Software Development" index ->
+            setCurrentPrompts <| unsetEnjoyment softwareDevelopmentPromptsOfModel index prompts
 
         UnsetEnjoyment "Product" index ->
             setCurrentPrompts <| unsetEnjoyment productPromptsOfModel index prompts
@@ -86,11 +86,11 @@ update msg model =
         UnsetEnjoyment "Hiring" index ->
             setCurrentPrompts <| unsetEnjoyment hiringPromptsOfModel index prompts
 
-        UnsetEnjoyment "Engineering Onboarding" index ->
-            setCurrentPrompts <| unsetEnjoyment engineeringOnboardingPromptsOfModel index prompts
+        UnsetEnjoyment "Teammate Onboarding" index ->
+            setCurrentPrompts <| unsetEnjoyment teammateOnboardingPromptsOfModel index prompts
 
-        UnsetEnjoyment "Engineering Retention" index ->
-            setCurrentPrompts <| unsetEnjoyment engineeringRetentionPromptsOfModel index prompts
+        UnsetEnjoyment "Teammate Retention" index ->
+            setCurrentPrompts <| unsetEnjoyment teammateRetentionPromptsOfModel index prompts
 
         SetSkill _ _ _ ->
             model

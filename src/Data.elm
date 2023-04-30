@@ -1,11 +1,11 @@
 module Data exposing (..)
 
-import Model exposing (Engineering, EngineeringOnboarding, EngineeringRetention, Hiring, Product, TeamManagement)
+import Model exposing (Hiring, Product, SoftwareDevelopment, TeamManagement, TeammateOnboarding, TeammateRetention)
 import Types exposing (Prompt, buildQuestion)
 
 
-engineeringPrompts : List (Prompt Engineering)
-engineeringPrompts =
+softwareDevelopmentPrompts : List (Prompt SoftwareDevelopment)
+softwareDevelopmentPrompts =
     [ buildQuestion "Feature development"
     , buildQuestion "Refactoring / architecture"
     , buildQuestion "Fixing bugs"
@@ -15,7 +15,7 @@ engineeringPrompts =
     , buildQuestion "Conducting code review"
     , buildQuestion "Conducting code spikes / POCs"
     , buildQuestion "Improving developer experience"
-    , buildQuestion "Coaching other teammates on any engineering activities"
+    , buildQuestion "Coaching other teammates on any software development activities"
     , buildQuestion "Consulting across different product teams on technical challenges"
     ]
 
@@ -23,7 +23,7 @@ engineeringPrompts =
 productPrompts : List (Prompt Product)
 productPrompts =
     [ buildQuestion "Scoping work to fit within a timebox / pushing towards a minimum viable version of a feature"
-    , buildQuestion "Estimating engineering work"
+    , buildQuestion "Estimating software development work"
     , buildQuestion "Participating in customer calls"
     , buildQuestion "Conducting generative or evaluative research"
     , buildQuestion "Consulting across different product teams on product challenges"
@@ -51,18 +51,18 @@ hiringPrompts =
     ]
 
 
-engineeringOnboardingPrompts : List (Prompt EngineeringOnboarding)
-engineeringOnboardingPrompts =
+teammateOnboardingPrompts : List (Prompt TeammateOnboarding)
+teammateOnboardingPrompts =
     [ buildQuestion "Developing onboarding processes"
     , buildQuestion "Developing onboarding material"
     , buildQuestion "Participating as an onboarding guide"
     ]
 
 
-engineeringRetentionPrompts : List (Prompt EngineeringRetention)
-engineeringRetentionPrompts =
+teammateRetentionPrompts : List (Prompt TeammateRetention)
+teammateRetentionPrompts =
     [ buildQuestion "Developing skills (focused on an individual)"
     , buildQuestion "Developing skills (focused on a team)"
-    , buildQuestion "Supporting high-performing engineering culture"
+    , buildQuestion "Supporting high-performing software development culture"
     , buildQuestion "Planning / executing on team-building activities"
     ]

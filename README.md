@@ -1,11 +1,11 @@
-# Engineering Skills Matrix
+# Software Development Skills Matrix
 
 ## What?
 
-This is a small [Elm] application allowing engineers to gauge skills and
-interest across a few different types of responsibilities in order to guide
-conversations around career growth into engineering management, engineering
-lead, or senior technical roles.
+This is a small [Elm] application allowing software developers to gauge skills
+and interest across a few different types of responsibilities in order to guide
+conversations around career growth into management, lead, or senior technical
+roles.
 
 [Elm]: https://elm-lang.org/
 
